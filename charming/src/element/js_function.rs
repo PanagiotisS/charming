@@ -29,6 +29,24 @@ impl JsFunction {
     }
 }
 
+#[cfg(not(target_arch = "wasm32"))]
+impl From<&str> for JsFunction {
+    fn from(s: &str) -> Self {
+        JsFunction {
+            value: RawString::from(s),
+        }
+    }
+}
+
+#[cfg(not(target_arch = "wasm32"))]
+impl From<String> for JsFunction {
+    fn from(s: String) -> Self {
+        JsFunction {
+            value: RawString::from(s),
+        }
+    }
+}
+
 impl PartialOrd for JsFunction {
     fn partial_cmp(&self, _other: &Self) -> Option<std::cmp::Ordering> {
         None
