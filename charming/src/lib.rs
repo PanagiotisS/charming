@@ -291,6 +291,7 @@ pub struct Chart {
     series: Vec<Series>,
     #[serde(skip_serializing)]
     geo_map: Vec<GeoMap>,
+    use_utc: Option<bool>,
 }
 impl Chart {
     pub fn save_as_image_type(&self) -> Option<&SaveAsImageType> {

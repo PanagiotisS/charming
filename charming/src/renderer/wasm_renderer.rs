@@ -184,6 +184,15 @@ extern "C" {
 
     #[wasm_bindgen(method, js_name = "dispose")]
     pub fn dispose(this: &Echarts);
+
+    #[wasm_bindgen(method, js_name = "on")]
+    pub fn on(this: &Echarts, event: &str, handler: &js_sys::Function);
+
+    #[wasm_bindgen(method, js_name = "setTheme")]
+    pub fn set_theme(this: &Echarts, theme: &str);
+
+    #[wasm_bindgen(js_namespace = echarts, js_name = registerTheme)]
+    fn register_theme(name: &str, theme: JsValue);
 }
 
 // Enable dispose on on_cleanup function in Leptos
